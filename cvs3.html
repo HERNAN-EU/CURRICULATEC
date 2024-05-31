@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CV Hibrido - TECNM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/cvs3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6a18b5e1c5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo"> <img class="logo" src="img/LOGO.jpg" alt=""></div>
+        <input type="checkbox" id="nav_check" hidden>
+        <nav>
+            <ul>
+                <li>
+                    <a href="" class="active">Inicio <i class="icono fa-solid fa-house"></i></a>
+                </li>
+                <li>
+                    <a href="http://orizaba.tecnm.mx/itocc/?page_id=28">Información <i class="icono fa-solid fa-circle-info"></i></a>
+                </li>
+                <li>
+                    <a href="http://orizaba.tecnm.mx/itocc/?page_id=1436">EGRESADOS<i class="icono fa-solid fa-users"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.tecnm.mx/">TECNM<i class="icono fa-solid fa-school"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.tecnm.mx/?vista=Directorio">Seguimiento<i class="icono fa-solid fa-compass"></i></a>
+                </li>
+            </ul>
+        </nav>
+        <label for="nav_check" class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+    </header>
+
+    <div class="contenedor-opciones">
+        <form id="customForm">
+            <h4>Modificar Estilos</h4>
+            <label for="imageUpload" id="imageUploadLabel">Escoge una foto para tu CV <i
+                    class="icono fa-solid fa-image"></i></label>
+            <input type="file" id="imageUpload" accept="image/*"><br>
+
+            <div class="cont-degradado">
+                <label for="colorderecha">Degradado de la cabecera:</label>
+                <input type="color" id="colorderecha" value="#667db6">
+                <input type="color" id="colorizquierda" value="#0082c8">
+                <label for="color">Color de Fondo:</label>
+                <input type="color" id="color" name="color" value="#FFFFFF">
+            </div>
+
+            <label for="fontFamily">Tipo de Letra:</label>
+            <select id="fontFamily" name="fontFamily">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Helvetica">Helvetica</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Nunito">Nunito</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Arial, Helvetica, sans-serif">Arial, Helvetica, sans-serif</option>
+                <option value="Times New Roman, Times, serif">Times New Roman, Times, serif</option>
+                <option value="Courier New, Courier, monospace">Courier New, Courier, monospace</option>
+                <option value="Georgia, serif">Georgia, serif</option>
+                <option value="Verdana, Geneva, sans-serif">Verdana, Geneva, sans-serif</option>
+                <option value="Palatino Linotype, Book Antiqua, Palatino, serif">Palatino</option>
+                <option value="Lucida Console, Monaco, monospace">Lucida Console, Monaco, monospace</option>
+                <option value="Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Arial Narrow Bold</option>
+            </select><br><br>
+            
+
+            <label for="fontSize">Tamaño de Letra:</label>
+            <input type="number" id="fontSize" name="fontSize" min="10" max="30"><br><br>
+
+            <label for="textAlign">Alineación de Texto:</label>
+            <select id="textAlign" name="textAlign">
+                <option value="left">Izquierda</option>
+                <option value="center">Centro</option>
+                <option value="right">Derecha</option>
+                <option value="justify">Justificado</option>
+            </select><br><br>
+
+            <label for="textColor">Color de Texto:</label>
+            <input type="color" id="textColor" name="textColor" value="#000000"><br><br>
+
+            <label for="label" id="label-aplicar">Aplicar Estilos<i class="icono fa-solid fa-sliders"></i></label>
+            <input type="submit" value="Aplicar Estilos" id="label">
+            <label for="btn-reset" id="label-reset">Resetear<i class="icono fa-solid fa-pen-to-square"></i></label>
+            <label for="btn-back" id="label-reset">Ver más plantillas<i
+                    class="icono fa-solid fa-compass-drafting"></i></i></label>
+            <input type="submit" value="Reset" id="btn-reset">
+            <input type="submit" value="back" id="btn-back">
+            <button id="generatePdfButton" onclick="imprimirPDF()">Generar PDF<i
+                    class="icono fa-solid fa-download"></i></button>
+        </form>
+    </div>
+    <div class="container" id="container">
+        <script>
+            // Recuperar los datos almacenados del formulario
+            var storedData = localStorage.getItem('formularioData');
+            if (storedData) {
+                // Convertir los datos almacenados de JSON a objeto
+                var formData = JSON.parse(storedData);
+
+                // Mostrar los detalles del currículum
+                var detallesDiv = document.getElementById('container');
+                detallesDiv.innerHTML =
+                '<div>' +
+    '<div class="header">' +
+        '<div class="profile-pic">' +
+            '<input type="file" id="fileInput" accept="image/*" style="display: none;">' +
+            '<img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Foto_Perfil_.jpg" alt="Foto de perfil" id="profileImage">' +
+        '</div>' +
+        '<h1>' + formData.nombre + '</h1>' +
+    '</div>' +
+    '<div class="main-content">' +
+        '<div class="left-column">' +
+            '<h3>Contacto</h3>' +
+            '<p><strong>Dirección:</strong> ' + formData.direccion + '</p>' +
+            '<p><strong>Telefono:</strong> ' + formData.telefono + '</p>' +
+            '<p><strong>Correo Electronico:</strong> ' + formData.email + '</p>' +
+            '<p><strong>Estado Civil:</strong> ' + formData.estado_civil + '</p>' +
+        '</div>' +
+        '<div class="right-column">' +
+            '<h3>Experiencia laboral</h3>' +
+            '<h4>Puesto:</h4>' +
+            '<ul>' +
+                '<li>Nombre de la Empresa: ' + formData.empresa+ '</li>' +
+                '<li>Ciudad o Pais: ' + formData.ubicacion + '</li>' +
+                '<li>Periodo de Empleo: ' + formData.periodo + '</li>' +
+                '<li>Rol o responsabilidades: ' + formData.responsabilidades + '</li>' +
+            '</ul>' +
+            '<h3>Educación</h3>' +
+            '<h4>Titulos: ' + formData.titulos + '</h4>' +
+            '<p><strong>Institución academica:</strong> ' + formData.institucion + '</p>' +
+            '<p><strong>Ubicacion de la institución:</strong> ' + formData.ubicacion_edu + '</p>' +
+            '<p><strong>Especializacion:</strong> ' + formData.especializacion + '</p>' +
+            '<h3>Idiomas</h3>' +
+            '<ul>' +
+                '<li>Idiomas dominantes: ' + formData.idiomas + '</li>' +
+            '</ul>' +
+            '<h3>Habilidades Tecnicas:</h3>' +
+            '<ul>' +
+                '<li>Contenido: ' + formData.habilidades_tecnicas + '</li>' +
+            '</ul>' +
+            '<h3>Habilidades Blandas:</h3>' +
+            '<ul>' +
+                '<li>Contenido: ' + formData.habilidades_blandas + '</li>' +
+            '</ul>' +
+            '<h3>Reconocimientos:</h3>' +
+            '<ul>' +
+                '<li>Contenido: ' + formData.reconocimientos + '</li>' +
+            '</ul>' +
+            '<h3>Referentes:</h3>' +
+            '<ul>' +
+                '<li>Referente: ' + formData.referente + '</li>' +
+                '<li>Cargo: ' + formData.cargo_referente + '</li>' +
+                '<li>Contacto: ' + formData.contacto_referente + '</li>' +
+            '</ul>' +
+        '</div>' +
+    '</div>' +
+'</div>';
+
+            }
+        </script>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script>
+        document.getElementById('btn-reset').addEventListener('click', function () {
+            location.reload();
+        });
+        document.getElementById('btn-back').addEventListener('click', function () {
+            window.location.href = "Curriculum.html";
+        });
+
+        document.getElementById('imageUpload').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('profileImage').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+        const form = document.getElementById('customForm');
+        const preview = document.getElementById('container-captcha');
+
+        form.addEventListener('submit', function (event) {
+
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const styles = {};
+
+            for (let [key, value] of formData.entries()) {
+                styles[key] = value;
+            }
+
+            applyStyles(styles);
+        });
+
+
+
+        function applyStyles(styles) {
+
+            const previewDivs = document.querySelectorAll('.container, .main , .header, .left');
+
+            previewDivs.forEach(div => {
+                var colorderecha = document.getElementById("colorderecha");
+                var color_derecha = colorderecha.value;
+                var colorizquierda = document.getElementById("colorizquierda");
+                var color_izquierda = colorizquierda.value;
+                var gradientDiv = document.querySelector(".header");
+                gradientDiv.style.background = "linear-gradient(to left," + color_izquierda + "," + color_derecha + ")";
+                div.style.backgroundColor = styles.color;
+                div.style.fontFamily = styles.fontFamily;
+                div.style.fontSize = styles.fontSize + 'px';
+                div.style.textAlign = styles.textAlign;
+
+            });
+
+            const textElements = document.querySelectorAll('.container, .main , .header, .left');
+
+            textElements.forEach(element => {
+                element.style.color = styles.textColor;
+            });
+
+        }
+        
+    function imprimirPDF() {
+    // Ocultar botón antes de imprimir
+    document.querySelector("header").style.display = "none";
+    document.querySelector(".contenedor-opciones").style.display = "none";
+    document.querySelector("footer").style.display = "none";
+    document.querySelector("#container").style.margin = "0px";
+    document.querySelector("body").style.padding = "12px";
+    html2pdf().from(document.getElementById('container')).toPdf().get('pdf').then(function(pdf) {
+        uploadPDF(pdf); // Llamar a la función de subida del PDF pasando el PDF generado
+    });
+}
+
+async function uploadPDF(pdf) {
+    const accessToken = 'ya29.a0AXooCgtVlwJDvH0PfzSB6G8wKdHB3fyUOwp0dEzcKjKsjthjb1ZSuxwbryon8Q6AIrbSDHC-q-86W4ULeS-0if1fwXXKQmIDKzTUXbt-USnVo01yyb6mbY2B9VqCXGqEYVVVSPtYNuTBiK7ZOfXAuoStyf-d6zoXOeTeaCgYKAaISARESFQHGX2MiClNGojZ1AS84MBHEJJQ5ww0171';
+
+    try {
+        const blob = new Blob([await pdf.output('blob')], { type: 'application/pdf' });
+
+        // Crear el metadata del archivo PDF
+        const metadata = {
+            name: 'CURRICULUM.pdf',
+            mimeType: 'application/pdf'
+        };
+
+        // Subir el archivo PDF a Google Drive
+        const formData = new FormData();
+        formData.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }));
+        formData.append('file', blob);
+
+        const fileResponse = await fetch(`https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&access_token=${accessToken}`, {
+            method: 'POST',
+            body: formData
+        });
+
+        if (!fileResponse.ok) {
+            throw new Error('Error al subir el archivo PDF.');
+        }else{
+            alert('El PDF se generó y se subió con éxito a Google Drive.');
+        // Redirigir al usuario a la página de Curriculum.html
+        window.location.href = 'http://localhost/VERSION3/Curriculum.html';
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+        alert("Error al subir el archivo: " + error.message);
+    }
+}
+
+
+    </script>
+    <!--::::Pie de Pagina::::::-->
+    <footer class="pie-pagina">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href="#">
+                        <div class="logo"><img class="logo" src="img/LOGO.jpg" alt=""></div>
+                    </a>
+                </figure>
+            </div>
+            <div class="box">
+                <h2>SOBRE NOSOTROS</h2>
+                <p>Somos un grupo de jovenes entusiastas que busca brindar
+                    una solución practica y dar una mano a quien necesite orientación
+                    para empezar su vida laboral.</p>
+            </div>
+            <div class="box">
+                <h2>SIGUENOS</h2>
+                <div class="red-social">
+                    <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+                    <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+                    <a href="https://twitter.com/" class="fa fa-twitter"></a>
+                    <a href="https://www.youtube.com/@TecNMMXMexico" class="fa fa-youtube"></a>
+                </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small>&copy; 2024 <b>Instituto Tecnológico Nacional Campus Orizaba</b> - Todos los Derechos
+                Reservados.</small>
+        </div>
+    </footer>
+
+</html>

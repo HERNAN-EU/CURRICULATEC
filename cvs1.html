@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CV Cronológico - TECNM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="CSS/cvs1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6a18b5e1c5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo"> <img class="logo" src="img/LOGO.jpg" alt=""></div>
+        <input type="checkbox" id="nav_check" hidden>
+        <nav>
+            <ul>
+                <li>
+                    <a href="" class="active">Inicio <i class="icono fa-solid fa-house"></i></a>
+                </li>
+                <li>
+                    <a href="http://orizaba.tecnm.mx/itocc/?page_id=28">Información <i class="icono fa-solid fa-circle-info"></i></a>
+                </li>
+                <li>
+                    <a href="http://orizaba.tecnm.mx/itocc/?page_id=1436">EGRESADOS<i class="icono fa-solid fa-users"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.tecnm.mx/">TECNM<i class="icono fa-solid fa-school"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.tecnm.mx/?vista=Directorio">Seguimiento<i class="icono fa-solid fa-compass"></i></a>
+                </li>
+            </ul>
+        </nav>
+        <label for="nav_check" class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+    </header>
+
+    <div class="contenedor-opciones">
+        <form id="customForm">
+            <h4>Modificar Estilos</h4>
+            <label for="imageUpload" id="imageUploadLabel">Escoge una foto para tu CV <i
+                    class="icono fa-solid fa-image"></i></label>
+            <input type="file" id="imageUpload" accept="image/*"><br>
+
+            <div class="cont-degradado">
+                <label for="colorderecha">Degradado de la cabecera:</label>
+                <input type="color" id="colorderecha" value="#ff8177">
+                <input type="color" id="colorizquierda" value="#b12a5b">
+                <label for="color">Color de Fondo:</label>
+                <input type="color" id="color" name="color" value="#FFFFFF">
+            </div>
+
+            <label for="fontFamily">Tipo de Letra:</label>
+            <select id="fontFamily" name="fontFamily">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Helvetica">Helvetica</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Nunito">Nunito</option>
+            </select><br><br>
+
+            <label for="fontSize">Tamaño de Letra:</label>
+            <input type="number" id="fontSize" name="fontSize" min="10" max="30"><br><br>
+
+            <label for="textAlign">Alineación de Texto:</label>
+            <select id="textAlign" name="textAlign">
+                <option value="left">Izquierda</option>
+                <option value="center">Centro</option>
+                <option value="right">Derecha</option>
+                <option value="justify">Justificado</option>
+            </select><br><br>
+
+            <label for="textColor">Color de Texto:</label>
+            <input type="color" id="textColor" name="textColor" value="#000000"><br><br>
+
+            <label for="label" id="label-aplicar">Aplicar Estilos<i class="icono fa-solid fa-sliders"></i></label>
+            <input type="submit" value="Aplicar Estilos" id="label">
+            <label for="btn-reset" id="label-reset">Resetear<i class="icono fa-solid fa-pen-to-square"></i></label>
+            <label for="btn-back" id="label-reset">Ver más plantillas<i class="icono fa-solid fa-compass-drafting"></i></i></label>
+            <input type="submit" value="Reset" id="btn-reset">
+            <input type="submit" value="back" id="btn-back">
+            <button id="generatePdfButton" onclick="imprimirPDF()">Generar PDF<i
+                class="icono fa-solid fa-download"></i></button>
+        </form>
+    </div>
+    <div id="container-captcha">
+        <script>
+            // Recuperar los datos almacenados del formulario
+            var storedData = localStorage.getItem('formularioData');
+            if (storedData) {
+                // Convertir los datos almacenados de JSON a objeto
+                var formData = JSON.parse(storedData);
+
+                // Mostrar los detalles del currículum
+                var detallesDiv = document.getElementById('container-captcha');
+                detallesDiv.innerHTML =
+                    '<div class="header">' +
+                    '<div class="profile-picture">' +
+                    '<img id="profileImage" ' +
+                    'src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" ' +
+                    'alt="Foto de Perfil">' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="main">' + '<div class="contact-info">' +
+                    '<h1>Información Personal:</h1>' +
+                    '<p>' + '<strong>' + 'Nombre:' + '</strong>' + formData.nombre + '</p>' +
+                    '<p>' + '<strong>' + 'Dirección:' + '</strong>' + formData.direccion + '</p>' +
+                    '<p>' + '<strong>' + 'Teléfono:' + '</strong>' + formData.telefono + '</p>' +
+                    '<p>' + '<strong>' + 'Correo Electrónico:' + '</strong>' + formData.email + '</p>' +
+                    '<p>' + '<strong>' + 'Fecha de Nacimiento:' + '</strong>' + formData.fecha_nacimiento + '</p>' +
+                    '<p>' + '<strong>' + 'Estado civil:' + '</strong>' + formData.estado_civil + '</p>' +
+                    '</div>' + '<div class="objetivo">' +
+                    '<h2><strong>Objetivo profesional o declaración personal:</strong></h2>' +
+                    '<p>' + formData.objetivo + '</p>' + '</div>' +
+                    '<h2><strong>Experiencia Laboral:</strong></h2>' +
+                    '<div class="experience">' +
+                    '<div class="job">' +
+                    '<h3><strong>Puesto:' + formData.puesto + '</strong></h3>' +
+                    '<p><strong>Nombre de la empresa:</strong> ' + formData.empresa + '</p>' +
+                    '<p><strong>Ciudad o país:</strong> ' + formData.ubicacion + '</p>' +
+                    '<p><strong>Periodo de empleo:</strong> ' + formData.periodo + '</p>' +
+                    '<p><strong>Rol o responsabilidades:</strong> ' + formData.responsabilidades + '</p>' +
+                    '</div>' +
+                    '</div>' +
+                    '<h2><strong>Educación:</strong></h2>' +
+                    '<div class="education">' +
+                    '<div class="degree">' +
+                    '<h3><strong>Títulos:' + formData.titulos + '</strong></h3>' +
+                    '<p><strong>Institución academica:</strong> ' + formData.institucion + '</p>' +
+                    '<p><strong>Ubicacion de la institución:</strong> ' + formData.ubicacion_edu + '</p>' +
+                    '<p><strong>Especializacion:</strong> ' + formData.especializacion + '</p>' +
+                    '</div>' +
+                    '</div>' +
+                    '<h2><strong>Idiomas:</strong></h2>' +
+                    '<p><strong>Idiomas dominantes:</strong> ' + formData.idiomas + '</p>' +
+                    '<h2><strong>Habilidades Técnicas:</strong></h2>' +
+                    '<p><strong>Habilidades:</strong> ' + formData.habilidades_tecnicas + '</p>' +
+                    '<h2><strong>Habilidades Blandas:</strong></h2>' +
+                    '<p>' + formData.habilidades_blandas + '</p>' +
+                    '<h2><strong>Reconocimientos:</strong></h2>' +
+                    '<p>' + formData.reconocimientos + '</p>' +
+                    '<h2><strong>Referentes:</strong></h2>' +
+                    '<p><strong>Referente:</strong> ' + formData.referente + '</p>' +
+                    '<p><strong>Cargo:</strong> ' + formData.cargo + '</p>' +
+                    '<p><strong>Contacto:</strong> ' + formData.contacto_referente + '</p>' +
+                    '</div>' +
+                    '</div>';
+
+            }
+        </script>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script>
+        document.getElementById('btn-reset').addEventListener('click', function () {
+            location.reload();
+        });
+        document.getElementById('btn-back').addEventListener('click', function () {
+            window.location.href = "Curriculum.html";  
+        });
+        document.getElementById('generatePdfButton').addEventListener('click', function () {
+            var container = document.querySelector('#container-captcha');
+
+            var opt = {
+                margin: 0.1,
+                filename: 'mi_curriculum.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().from(container).set(opt).save();
+        });
+
+        document.getElementById('imageUpload').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('profileImage').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+        const form = document.getElementById('customForm');
+        const preview = document.getElementById('container-captcha');
+
+        form.addEventListener('submit', function (event) {
+            
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            const styles = {};
+
+            for (let [key, value] of formData.entries()) {
+                styles[key] = value;
+            }
+
+            applyStyles(styles);
+        });
+
+
+
+        function applyStyles(styles) {
+            
+            const previewDivs = document.querySelectorAll('.container-captcha, .contact-info, .main');
+
+            previewDivs.forEach(div => {
+                var colorderecha = document.getElementById("colorderecha");
+            var color_derecha = colorderecha.value;
+            var colorizquierda = document.getElementById("colorizquierda");
+            var color_izquierda = colorizquierda.value;
+            var gradientDiv = document.querySelector(".header");
+            gradientDiv.style.background = "linear-gradient(to left," + color_izquierda + "," + color_derecha + ")";
+                div.style.backgroundColor = styles.color;
+                div.style.fontFamily = styles.fontFamily;
+                div.style.fontSize = styles.fontSize + 'px';
+                div.style.textAlign = styles.textAlign;
+                
+            });
+
+            const textElements = document.querySelectorAll('.container-captcha, .contact-info, .main');
+
+            textElements.forEach(element => {
+                element.style.color = styles.textColor;
+            });
+            
+        }
+        function imprimirPDF() {
+            // Ocultar botón antes de imprimir
+            document.querySelector("header").style.display = "none";
+            document.querySelector(".contenedor-opciones").style.display = "none";
+            document.querySelector("footer").style.display = "none";
+            document.querySelector("#container-captcha").style.margin = "0";
+            document.querySelector("body").style.background = "white";
+            document.querySelector("body").style.padding = "12px";
+
+            // Imprimir el contenido
+            window.print();
+            location.reload();
+            window.location.href = "cvs1.html";
+        }
+    </script>
+    <!--::::Pie de Pagina::::::-->
+    <footer class="pie-pagina">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href="#">
+                        <div class="logo"><img class="logo" src="img/LOGO.jpg" alt=""></div>
+                    </a>
+                </figure>
+            </div>
+            <div class="box">
+                <h2>SOBRE NOSOTROS</h2>
+                <p>Somos un grupo de jovenes entusiastas que busca brindar
+                    una solución practica y dar una mano a quien necesite orientación
+                    para empezar su vida laboral.</p>
+            </div>
+            <div class="box">
+                <h2>SIGUENOS</h2>
+                <div class="red-social">
+                    <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+                    <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+                    <a href="https://twitter.com/" class="fa fa-twitter"></a>
+                    <a href="https://www.youtube.com/@TecNMMXMexico" class="fa fa-youtube"></a>
+                </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small>&copy; 2024 <b>Instituto Tecnológico Nacional Campus Orizaba</b> - Todos los Derechos
+                Reservados.</small>
+        </div>
+    </footer>
+
+</html>

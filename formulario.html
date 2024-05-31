@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insttuto Tecnologico Nacional Campus Orizaba - TECNM </title>
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><img class="logo" src="img/LOGO.jpg" alt=""></div>
+        <input type="checkbox" id="nav_check" hidden>
+        <nav>
+            <ul>
+                <li>
+                    <a href="" class="active">Inicio</a>
+                </li>
+                <li>
+                    <a href="">Informacion</a>
+                </li>
+                <li>
+                    <a href="">Blog</a>
+                </li>
+                <li>
+                    <a href="">TECNM</a>
+                </li>
+                <li>
+                    <a href="">Seguimiento</a>
+                </li>
+                <li>
+                    <a href="login.html">Iniciar Sesión<i class="icono fa-solid fa-compass"></i></a>
+                </li>
+            </ul>
+        </nav>
+        <label for="nav_check" class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+    </header>
+
+    <div class="presentacion">
+        <h2>¡CUENTANOS MAS SOBRE TI!</h2>
+        <p>Comenzaremos con algo basico para empezar a conocerte, por favor rellena con datos reales lo que
+            se te solicita y responde honestamente, recuerda que es tu imagen la que va a pasar por los reclutadores que
+            quieran conocerte, dentro de cualquier empresa, por parte del <strong>Instituto Tecnologico Nacional
+                Campus Orizaba,Veracruz</strong>te deseamos mucha suerte.
+    </div>
+    </p>
+    <div class="contenedor-formulario">
+        <form id="Formulario" action="Menu.html" action="cvs1.html">
+            <h2>Información personal:</h2>
+            <label for="nombre">Nombre completo:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo">
+
+            <label for="direccion">Dirección completa:</label>
+            <input type="text" id="direccion" name="direccion" placeholder="Escribe tu dirección completa">
+
+            <label for="telefono">Número de teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" placeholder="Escribe tu número de teléfono">
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" placeholder="Escribe tu correo electrónico">
+
+            <label for="fecha_nacimiento">Fecha de nacimiento (opcional):</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+
+            <label for="estado_civil">Estado civil (opcional):</label>
+            <input type="text" id="estado_civil" name="estado_civil" placeholder="Escribe tu estado civil">
+
+            <h2>Objetivo profesional o declaración personal (opcional):</h2>
+            <textarea id="objetivo" name="objetivo"
+                placeholder="Escribe tu objetivo profesional o declaración personal"></textarea>
+            <!-- Botón "Saber Más" -->
+            <a href="https://www.euroinnova.mx/blog/como-redactar-un-objetivo-profesional" target="_blank" class="boton-saber-mas">Como
+                redactar un objetivo profesional</a>
+
+            <h2>Experiencia laboral:</h2>
+            <label for="puesto">Nombre del puesto:</label>
+            <input type="text" id="puesto" name="puesto" placeholder="Escribe el nombre del puesto">
+
+            <label for="empresa">Nombre de la empresa:</label>
+            <input type="text" id="empresa" name="empresa" placeholder="Escribe el nombre de la empresa">
+
+            <label for="ubicacion">Ubicación (ciudad y país):</label>
+            <input type="text" id="ubicacion" name="ubicacion" placeholder="Escribe la ubicación">
+
+            <label for="periodo">Periodo de empleo (incluir los meses):</label>
+            <input type="text" id="periodo" name="periodo" placeholder="Escribe el periodo de empleo">
+
+            <label for="responsabilidades">Descripción de responsabilidades y logros destacados:</label>
+            <textarea id="responsabilidades" name="responsabilidades"
+                placeholder="Escribe la descripción de responsabilidades y logros destacados"></textarea>
+            <!-- Botón "Saber Más" -->
+            <a href="https://www.occ.com.mx/blog/experiencia-laboral-en-el-curriculum/" target="_blank" class="boton-saber-mas">Como
+                redactar correctamente mi experiencia laboral</a>
+
+            <h2>Educación:</h2>
+            <label for="titulos">Títulos obtenidos:</label>
+            <input type="text" id="titulos" name="titulos" placeholder="Escribe los títulos obtenidos">
+
+            <label for="institucion">Nombre de la institución educativa:</label>
+            <input type="text" id="institucion" name="institucion"
+                placeholder="Escribe el nombre de la institución educativa">
+
+            <label for="ubicacion_edu">Ubicación de la institución:</label>
+            <input type="text" id="ubicacion_edu" name="ubicacion_edu"
+                placeholder="Escribe la ubicación de la institución">
+
+            <label for="especializacion">Especialización o enfoque de estudios:</label>
+            <input type="text" id="especializacion" name="especializacion"
+                placeholder="Escribe la especialización o enfoque de estudios">
+
+            <h2>Habilidades:</h2>
+            <label for="idiomas">Idiomas (nivel de competencia):</label>
+            <input type="text" id="idiomas" name="idiomas" placeholder="Escribe los idiomas y el nivel de competencia">
+
+            <label for="habilidades_tecnicas">Habilidades técnicas relevantes:</label>
+            <input type="text" id="habilidades_tecnicas" name="habilidades_tecnicas"
+                placeholder="Escribe las habilidades técnicas relevantes">
+
+            <label for="habilidades_blandas">Habilidades blandas:</label>
+            <input type="text" id="habilidades_blandas" name="habilidades_blandas"
+                placeholder="Escribe las habilidades blandas">
+
+            <!-- Botón "Saber Más" -->
+            <a href="https://cvapp.es/blog/habilidades-blandas-para-el-curriculum" target="_blank" class="boton-saber-mas">¿Cómo
+                redactar mis diferentes habilidades personales?</a>
+
+            <h2>Premios o reconocimientos (opcional):</h2>
+            <textarea id="reconocimientos" name="reconocimientos"
+                placeholder="Escribe premios o reconocimientos recibidos (opcional)"></textarea>
+
+            <h2>Referencias (opcional):</h2>
+            <label for="referente">Nombre del referente:</label>
+            <input type="text" id="referente" name="referente" placeholder="Escribe el nombre del referente">
+
+            <label for="cargo">Cargo o relación con el candidato:</label>
+            <input type="text" id="cargo" name="cargo" placeholder="Escribe el cargo o relación">
+
+            <label for="contacto_referente">Correo electrónico o número de teléfono:</label>
+            <input type="text" id="contacto_referente" name="contacto_referente"
+                placeholder="Escribe el contacto o relación con tu referencia">
+            <!-- Botón "Saber Más" -->
+            <a href="https://cvapp.es/blog/referencias-personales" target="_blank" class="boton-saber-mas">¿Cómo saber si tengo buenas
+                referencias?</a>
+
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+    <script>
+        // Capturar el evento de envío del formulario
+        document.getElementById('Formulario').addEventListener('submit', function (event) {
+            // Evitar el envío predeterminado del formulario
+            event.preventDefault();
+
+            // Obtener los valores del formulario
+            var formData = new FormData(this);
+
+            // Convertir los datos del formulario a un objeto JSON
+            var jsonObject = {};
+            formData.forEach(function (value, key) {
+                jsonObject[key] = value;
+            });
+            // Almacenar los datos en el almacenamiento local del navegador
+            localStorage.setItem('formularioData', JSON.stringify(jsonObject));
+
+            // Redirigir a la página de impresión
+            window.location.href = 'Menu.html';
+        })
+        ;
+    </script>
+</body>
+<!--::::Pie de Pagina::::::-->
+<footer class="pie-pagina">
+    <div class="grupo-1">
+        <div class="box">
+            <figure>
+                <a href="#">
+                    <div class="logo"><img class="logo" src="img/LOGO.jpg" alt=""></div>
+                </a>
+            </figure>
+        </div>
+        <div class="box">
+            <h2>SOBRE NOSOTROS</h2>
+            <p>Somos un grupo de jovenes entusiastas que busca brindar
+                una solución practica y dar una mano a quien necesite orientación
+                para empezar su vida laboral.</p>
+        </div>
+        <div class="box">
+            <h2>SIGUENOS</h2>
+            <div class="red-social">
+                <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+                <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+                <a href="https://twitter.com/" class="fa fa-twitter"></a>
+                <a href="https://www.youtube.com/@TecNMMXMexico" class="fa fa-youtube"></a>
+            </div>
+        </div>
+    </div>
+    <div class="grupo-2">
+        <small>&copy; 2024 <b>Instituto Tecnologico Nacional Campus Orizaba</b> - Todos los Derechos Reservados.</small>
+    </div>
+</footer>
+</html>

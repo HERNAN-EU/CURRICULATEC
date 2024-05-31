@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/Menu.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6a18b5e1c5.js" crossorigin="anonymous"></script>
+    <title>Captura de información</title>
+</head>
+<header>
+    <div class="logo"><img class="logo" src="img/LOGO.jpg" alt=""></div>
+    <input type="checkbox" id="nav_check" hidden>
+    <nav>
+        <ul>
+            <li>
+                <a href="" class="active">Inicio</a>
+            </li>
+            <li>
+                <a href="">Informacion</a>
+            </li>
+            <li>
+                <a href="">Blog</a>
+            </li>
+            <li>
+                <a href="">TECNM</a>
+            </li>
+            <li>
+                <a href="">Seguimiento</a>
+            </li>
+        </ul>
+    </nav>
+    <label for="nav_check" class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </label>
+</header>
+
+
+<body>
+    <div class="contenedor-ficha">
+        <div class="ficha">
+            <h2>Corrobora tu información:</h2>
+            <div id="detalles"></div>
+            <script>
+                // Recuperar los datos almacenados del formulario
+                var storedData = localStorage.getItem('formularioData');
+                if (storedData) {
+                    // Convertir los datos almacenados de JSON a objeto
+                    var formData = JSON.parse(storedData);
+
+                    // Mostrar los detalles del currículum
+                    var detallesDiv = document.getElementById('detalles');
+                    detallesDiv.innerHTML =
+                        '<h2>Información personal:</h2><br>' +
+                        '<div class="dato">' + '<label>Nombre Completo:</label>' + '<span>' + formData.nombre + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Dirección:</label>' + '<span>' + formData.direccion + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Teléfono:</label>' + '<span>' + formData.telefono + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Email:</label>' + '<span>' + formData.email + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Fecha de Nacimiento:</label>' + '<span>' + formData.fecha_nacimiento + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Estado Civil:</label>' + '<span>' + formData.estado_civil + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Objetivo profesional o declaración personal:</label>' + '<span>' + formData.objetivo + '</span>' + '</div>' +
+                        '<h2>Experiencia laboral:</h2>' +
+                        '<div class="dato">' + '<label>Puesto:</label>' + '<span>' + formData.puesto + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Empresa:</label>' + '<span>' + formData.empresa + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Ubicación:</label>' + '<span>' + formData.ubicacion + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Periodo:</label>' + '<span>' + formData.periodo + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Responsabilidades:</label>' + '<span>' + formData.responsabilidades + '</span>' + '</div>' +
+
+                        '<h2>Educación:</h2>' +
+                        '<div class="dato">' + '<label>Títulos:</label>' + '<span>' + formData.titulos + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Institución:</label>' + '<span>' + formData.institucion + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Ubicación Educativa:</label>' + '<span>' + formData.ubicacion_edu + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Especialización:</label>' + '<span>' + formData.especializacion + '</span>' + '</div>' +
+                        
+                        '<h2>Habilidades:</h2>' +
+                        '<div class="dato">' + '<label>Idiomas:</label>' + '<span>' + formData.idiomas + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Habilidades Técnicas:</label>' + '<span>' + formData.habilidades_tecnicas + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Habilidades Blandas:</label>' + '<span>' + formData.habilidades_blandas + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Reconocimientos:</label>' + '<span>' + formData.reconocimientos + '</span>' + '</div>' +
+                        '<h2>Referencias:</h2>' +
+                        '<div class="dato">' + '<label>Referente:</label>' + '<span>' + formData.referente + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Cargo:</label>' + '<span>' + formData.cargo + '</span>' + '</div>' +
+                        '<div class="dato">' + '<label>Contacto del Referente:</label>' + '<span>' + formData.contacto_referente + '</span>' + '</div>';
+
+                }
+            </script>
+             <div class="contenedor-envio">
+                <a class="back" target="_blank" href="index.html">Regresar a corregir mi información   <i class="icono fa-solid fa-pencil"></i></a>
+            <h3>Si todo esta en orden veamos la plantilla para tu curriculum</h3>
+            <a class="back-button plantillas" target="_blank" href="Curriculum.html">Ver plantillas  <i class="icono fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+        </div>
+        
+</body>
+
+
+<!--::::Pie de Pagina::::::-->
+<footer class="pie-pagina">
+    <div class="grupo-1">
+        <div class="box">
+            <figure>
+                <a href="#">
+                    <div class="logo"><img class="logo" src="img/LOGO.jpg" alt=""></div>
+                </a>
+            </figure>
+        </div>
+        <div class="box">
+            <h2>SOBRE NOSOTROS</h2>
+            <p>Somos un grupo de jovenes entusiastas que busca brindar
+                una solución practica y dar una mano a quien necesite orientación
+                para empezar su vida laboral.</p>
+        </div>
+        <div class="box">
+            <h2>SIGUENOS</h2>
+            <div class="red-social">
+                <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+                <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+                <a href="https://twitter.com/" class="fa fa-twitter"></a>
+                <a href="https://www.youtube.com/@TecNMMXMexico" class="fa fa-youtube"></a>
+            </div>
+        </div>
+    </div>
+    <div class="grupo-2">
+        <small>&copy; 2024 <b>Instituto Tecnologico Nacional Campus Orizaba</b> - Todos los Derechos Reservados.</small>
+    </div>
+</footer>
+</html>
